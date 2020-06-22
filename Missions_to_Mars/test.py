@@ -57,4 +57,4 @@ for item in nuevo['mars_facts']:
         print("-----------------------------")
         print(item['Description'])
         print("-----------------------------")
-        print(item['Value'].key)
+        print(item['Value'])

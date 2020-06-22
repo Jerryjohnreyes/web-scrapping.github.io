@@ -98,6 +98,7 @@ def scrape():
     }
     return scraped
 
+# Run it once to create the database
 # value = scrape()
 
 # import pymongo
