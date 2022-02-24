@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission To Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Latest Mars News</h2>
+        <h3>{{mars['mars_news'][ 0 ]['title']}}</h3>
+        <p class="justify-content">{{mars['mars_news'][ 0 ]['description']}}</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <h2>Mars Featured Image</h2>
+                <img src= {{mars['featured_image']}} alt="" width="600" height="600">
+            </div>
+            <div class="col-lg-5">
+                <h2 class="text-center">Current Weather on Mars</h2>
+                <p class="content-justify">{{mars['weather']}}</p>
+                <h2 class="text-center">Mars Facts</h2>
+                <table class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for item in mars['mars_facts'] %}
+                        <tr>
+                            <th scope="row"></th>
+                            <td>{{item['Description']}}</td>
+                            <td>{{item['Value']}}</td>
+                        </tr>
+                        {%endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="text-center">Mars Hemispheres</h2>
+        <div class= "row">
+            {% for item in mars['images'] %}
+            <div class="col-lg-6">
+                <img src = {{item['img_url']}} alt="" width="550" height="550">
+                <h3> {{item['title']}} </h3>
+            </div>
+            {% endfor %}
+        </div>
+    </div>    
+</body>
+
+</html>
